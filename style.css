@@ -1,19 +1,36 @@
-/* 기본 스타일 초기화 */
+/* CSS 디자인 토큰(변수) 정의 - 색상 및 크기를 한곳에서 관리 */
+:root {
+    --color-primary: #2c3e50;
+    --color-accent: #3498db;
+    --color-background: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #333333;
+    --color-border: #ecf0f1;
+    --radius-card: 12px;
+    --content-width: 800px;
+}
+
+/* 스타일 초기화 (Reset) */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    font-size: 16px;
+}
+
 body {
     font-family: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
     line-height: 1.7;
-    background-color: #f4f6f8;
-    color: #333;
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
+/* 헤더 영역 */
 .header {
-    background-color: #2c3e50;
+    background-color: var(--color-primary);
     color: white;
     text-align: center;
     padding: 2.5rem 1rem;
@@ -24,35 +41,38 @@ body {
     font-weight: 600;
 }
 
+/* 레이아웃 컨테이너 */
 .container {
-    max-width: 800px;
+    max-width: var(--content-width);
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
-section {
-    background: white;
+/* 카드 UI 공통 스타일 (피드백 반영: 태그 선택자 대신 .card 클래스 활용) */
+.card {
+    background-color: var(--color-surface);
     padding: 2rem;
     margin-bottom: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: var(--radius-card);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 마우스 오버 인터랙션 (선택사항) */
-section:hover {
+.card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* 제목 스타일 */
 h2 {
-    color: #2c3e50;
+    color: var(--color-primary);
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid #ecf0f1;
+    border-bottom: 2px solid var(--color-border);
     padding-bottom: 0.5rem;
 }
 
+/* 본문 및 리스트 */
 p {
     margin-bottom: 0.8rem;
     word-break: keep-all;
@@ -72,5 +92,5 @@ li:last-child {
 }
 
 strong {
-    color: #3498db;
+    color: var(--color-accent);
 }
